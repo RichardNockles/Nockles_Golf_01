@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=3 uid="uid://duv3q6pn5y5cf"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://vidcb5okvud6" path="res://01_Assets/03_Materials/BallMaterial.tres" id="1_qk8cj"]
+[ext_resource type="Script" path="res://04_Golf/01_Balls/GolfBall.gd" id="1_uetas"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5di6b"]
+albedo_color = Color(0.0563265, 0.725224, 0.376392, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ynsv5"]
+radius = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_m8qv1"]
+radius = 0.04
+height = 0.08
+
+[sub_resource type="Curve3D" id="Curve3D_ev40e"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f28yb"]
+top_radius = 0.0
+bottom_radius = 0.02
+height = 3.648
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbdvn"]
+albedo_color = Color(1, 1, 0.356863, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hpu3i"]
+height = 0.1
+radius = 0.05
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c7w08"]
+sky_top_color = Color(0.196078, 0.607843, 0.819608, 1)
+sky_horizon_color = Color(0.643024, 0.831319, 0.994639, 1)
+sky_curve = 1.94941
+ground_bottom_color = Color(0.435294, 0.686275, 0.482353, 1)
+ground_horizon_color = Color(0.43792, 0.655069, 0.801317, 1)
+ground_curve = 0.0606287
+sun_curve = 0.738686
+
+[sub_resource type="Sky" id="Sky_h7v2i"]
+sky_material = SubResource("ProceduralSkyMaterial_c7w08")
+
+[sub_resource type="Environment" id="Environment_ncrkp"]
+background_mode = 2
+sky = SubResource("Sky_h7v2i")
+ambient_light_color = Color(0.705882, 0.705882, 0.705882, 0.529412)
+
+[node name="Main" type="Node3D"]
+
+[node name="Ground" type="CSGBox3D" parent="."]
+use_collision = true
+collision_layer = 2
+size = Vector3(200, 0.5, 300)
+material = SubResource("StandardMaterial3D_5di6b")
+
+[node name="GolfBall" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.293379, 101)
+collision_mask = 6
+mass = 0.05
+physics_material_override = ExtResource("1_qk8cj")
+linear_damp = 0.5
+angular_damp = 0.5
+script = ExtResource("1_uetas")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GolfBall"]
+shape = SubResource("SphereShape3D_ynsv5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GolfBall"]
+mesh = SubResource("SphereMesh_m8qv1")
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, -4.09353e-16, 3.43488e-16, 3.43488e-16, 0.984808, 0.173648, -4.09353e-16, -0.173648, 0.984808, 2.08165e-12, 0.562006, 101.619)
+
+[node name="HolePosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.275, -100)
+
+[node name="AimingLine" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_ev40e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AimingLine"]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("CylinderMesh_f28yb")
+surface_material_override/0 = SubResource("StandardMaterial3D_xbdvn")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HSlider" type="HSlider" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.006
+anchor_top = 0.731
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 325.088
+offset_top = 113.312
+offset_right = -307.0
+offset_bottom = -45.0
+
+[node name="BallStartPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.294139, 101)
+
+[node name="Hole" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.275, -100)
+
+[node name="HoleTrigger" type="Area3D" parent="Hole"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hole/HoleTrigger"]
+shape = SubResource("CylinderShape3D_hpu3i")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ncrkp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 2.4663e-16, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
+light_color = Color(0.946128, 0.950147, 0.874226, 1)
