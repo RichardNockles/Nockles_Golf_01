@@ -1,3 +1,4 @@
 res://02_Levels/Main.tscn
-res://02_Levels/Main.gd
 res://04_Golf/01_Balls/GolfBall.gd
+res://01_Assets/03_Materials/BallMaterial.tres
+res://01_Assets/01_3D/02_Props/trees/tree.tscn

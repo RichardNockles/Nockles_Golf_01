@@ -1,10 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://duv3q6pn5y5cf"]
 
+[ext_resource type="PackedScene" uid="uid://x6rt31qsllv4" path="res://01_Assets/01_3D/03_Environment/Course/Nocks_Course_v2.blend" id="1_oqcai"]
 [ext_resource type="PhysicsMaterial" uid="uid://vidcb5okvud6" path="res://01_Assets/03_Materials/BallMaterial.tres" id="1_qk8cj"]
-[ext_resource type="Script" path="res://04_Golf/01_Balls/GolfBall.gd" id="1_uetas"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5di6b"]
-albedo_color = Color(0.0563265, 0.725224, 0.376392, 1)
+[ext_resource type="PackedScene" path="res://01_Assets/01_3D/02_Props/trees/tree.tscn" id="4_pcouj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ynsv5"]
 radius = 0.05
@@ -46,11 +44,10 @@ ambient_light_color = Color(0.705882, 0.705882, 0.705882, 0.529412)
 
 [node name="Main" type="Node3D"]
 
-[node name="Ground" type="CSGBox3D" parent="."]
-use_collision = true
-collision_layer = 2
-size = Vector3(200, 0.5, 300)
-material = SubResource("StandardMaterial3D_5di6b")
+[node name="GolfCourse" parent="." instance=ExtResource("1_oqcai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3345, 1.90735e-06, 106.683)
+
+[node name="Nocks_Course_v2" parent="GolfCourse" instance=ExtResource("1_oqcai")]
 
 [node name="GolfBall" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.293379, 101)
@@ -59,7 +56,6 @@ mass = 0.05
 physics_material_override = ExtResource("1_qk8cj")
 linear_damp = 0.5
 angular_damp = 0.5
-script = ExtResource("1_uetas")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GolfBall"]
 shape = SubResource("SphereShape3D_ynsv5")
@@ -71,7 +67,7 @@ mesh = SubResource("SphereMesh_m8qv1")
 transform = Transform3D(1, -4.09353e-16, 3.43488e-16, 3.43488e-16, 0.984808, 0.173648, -4.09353e-16, -0.173648, 0.984808, 2.08165e-12, 0.562006, 101.619)
 
 [node name="HolePosition" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.275, -100)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -0.0644288, 188)
 
 [node name="AimingLine" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -96,7 +92,7 @@ offset_right = -307.0
 offset_bottom = -45.0
 
 [node name="BallStartPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.294139, 101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213, -0.778, -83)
 
 [node name="Hole" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.275, -100)
@@ -112,3 +108,9 @@ environment = SubResource("Environment_ncrkp")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 2.4663e-16, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
 light_color = Color(0.946128, 0.950147, 0.874226, 1)
+
+[node name="Tree1Geo" parent="." instance=ExtResource("4_pcouj")]
+transform = Transform3D(1.77, 0, 0, 0, 1.77, 0, 0, 0, 1.77, 15.2285, 0.0626795, 202.977)
+
+[node name="Tree1Geo2" parent="." instance=ExtResource("4_pcouj")]
+transform = Transform3D(1.41, 0, 0, 0, 1.41, 0, 0, 0, 1.41, 13.2963, -0.0584195, 200.159)

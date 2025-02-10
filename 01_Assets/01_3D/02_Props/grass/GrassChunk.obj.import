@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bc00b7tchtvei"
+path="res://.godot/imported/GrassChunk.obj-15ee5af1087f3d73caeb880e0c289c18.mesh"
+
+[deps]
+
+files=["res://.godot/imported/GrassChunk.obj-15ee5af1087f3d73caeb880e0c289c18.mesh"]
+
+source_file="res://01_Assets/01_3D/02_Props/grass/GrassChunk.obj"
+dest_files=["res://.godot/imported/GrassChunk.obj-15ee5af1087f3d73caeb880e0c289c18.mesh", "res://.godot/imported/GrassChunk.obj-15ee5af1087f3d73caeb880e0c289c18.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
