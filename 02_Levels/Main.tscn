@@ -72,7 +72,7 @@ shape = SubResource("SphereShape3D_ynsv5")
 mesh = SubResource("SphereMesh_m8qv1")
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, -4.09353e-16, 3.43488e-16, 3.43488e-16, 0.984808, 0.173648, -4.09353e-16, -0.173648, 0.984808, 2.08165e-12, 0.562006, 101.619)
+transform = Transform3D(-0.984823, -0.0301387, 0.170925, 1.03513e-09, 0.984808, 0.173648, -0.173562, 0.171013, -0.969861, 213.575, -0.0715239, -86.3894)
 
 [node name="HolePosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -0.0644288, 188)
