@@ -46,8 +46,10 @@ water_mat.tres::ShaderMaterial::3926742292158481775::1675364814::0::1::::<><>::r
 ::res://01_Assets/01_3D/03_Environment/::1739188821
 ::res://01_Assets/01_3D/03_Environment/Course/::1739193738
 Nocks_Course_v2.blend::PackedScene::1679406744582006283::1739133258::1739134769::1::::<><>::uid://bifihmd7yhk5y::::res://01_Assets/01_3D/03_Environment/Course/textures/augusta_color_texture_atlas.png
-::res://01_Assets/01_3D/03_Environment/Course/Collision/::1739193805
+::res://01_Assets/01_3D/03_Environment/Course/Collision/::1739193806
 collision_terrain.blend::PackedScene::7817794411026999209::1739193805::1739193806::1::::<><>::
+::res://01_Assets/01_3D/03_Environment/Course/Collision/textures/::1739193806
+augusta_color_texture_atlas.png::CompressedTexture2D::3067894487870545145::1739193806::1739194158::1::::<><>::
 ::res://01_Assets/01_3D/03_Environment/Course/textures/::1739133482
 augusta_color_texture_atlas.png::CompressedTexture2D::2958752194468033332::1739133260::1739133482::1::::<><>::
 ::res://01_Assets/01_3D/03_Environment/MultiMesh/::1739190331

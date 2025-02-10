@@ -1,11 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://duv3q6pn5y5cf"]
+[gd_scene load_steps=19 format=3 uid="uid://duv3q6pn5y5cf"]
 
 [ext_resource type="PackedScene" uid="uid://x6rt31qsllv4" path="res://01_Assets/01_3D/03_Environment/Course/Nocks_Course_v2.blend" id="1_oqcai"]
 [ext_resource type="PhysicsMaterial" uid="uid://vidcb5okvud6" path="res://01_Assets/03_Materials/BallMaterial.tres" id="1_qk8cj"]
+[ext_resource type="PackedScene" uid="uid://djm86xdyq1tgb" path="res://01_Assets/01_3D/03_Environment/Course/Collision/collision_terrain.blend" id="2_lordl"]
 [ext_resource type="PackedScene" uid="uid://d37ov65bs2of0" path="res://01_Assets/01_3D/03_Environment/MultiMesh/multi_trees.tscn" id="4_mvcjg"]
 [ext_resource type="PackedScene" uid="uid://d2f3rk1ssyivh" path="res://01_Assets/01_3D/02_Props/trees/tree.tscn" id="4_pcouj"]
 [ext_resource type="ArrayMesh" uid="uid://bbtferxcltbfv" path="res://01_Assets/01_3D/02_Props/trees/tree_mesh.tres" id="5_mlhwg"]
 [ext_resource type="Script" path="res://01_Assets/01_3D/03_Environment/MultiMesh/multi_trees.gd" id="6_u157u"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n8v8j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ynsv5"]
 radius = 0.05
@@ -53,9 +56,15 @@ buffer = PackedFloat32Array(0, 6, 0.1155, 0.132, 0.1595, 1, 0, 0.105263, 0, 6, 0
 [node name="Main" type="Node3D"]
 
 [node name="GolfCourse" parent="." instance=ExtResource("1_oqcai")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3345, 1.90735e-06, 106.683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 100)
 
 [node name="Nocks_Course_v2" parent="GolfCourse" instance=ExtResource("1_oqcai")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GolfCourse/Nocks_Course_v2"]
+shape = SubResource("ConvexPolygonShape3D_n8v8j")
+
+[node name="collision_terrain" parent="GolfCourse" instance=ExtResource("2_lordl")]
+visible = false
 
 [node name="GolfBall" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.293379, 101)
