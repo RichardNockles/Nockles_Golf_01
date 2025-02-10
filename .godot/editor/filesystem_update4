@@ -4,3 +4,4 @@ res://01_Assets/03_Materials/BallMaterial.tres
 res://01_Assets/01_3D/02_Props/trees/tree.tscn
 res://02_Levels/Main.gd
 res://01_Assets/01_3D/03_Environment/MultiMesh/multi_trees.gd
+res://01_Assets/01_3D/03_Environment/Course/Collision/collision_terrain.tscn
