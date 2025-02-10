@@ -41,6 +41,13 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": ""
 }
+},
+"nodes": {
+"PATH:01_GolfCourse": {
+"generate/navmesh": 2,
+"generate/occluder": 2,
+"physics/shape_type": 2
+}
 }
 }
 gltf/naming_version=1
