@@ -1,14 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://duv3q6pn5y5cf"]
+[gd_scene load_steps=16 format=3 uid="uid://duv3q6pn5y5cf"]
 
-[ext_resource type="PackedScene" uid="uid://x6rt31qsllv4" path="res://01_Assets/01_3D/03_Environment/Course/Nocks_Course_v2.blend" id="1_oqcai"]
 [ext_resource type="PhysicsMaterial" uid="uid://vidcb5okvud6" path="res://01_Assets/03_Materials/BallMaterial.tres" id="1_qk8cj"]
-[ext_resource type="PackedScene" uid="uid://djm86xdyq1tgb" path="res://01_Assets/01_3D/03_Environment/Course/Collision/collision_terrain.blend" id="2_lordl"]
+[ext_resource type="PackedScene" uid="uid://dulek1vav8tsb" path="res://01_Assets/01_3D/03_Environment/Course/GolfCourse.tscn" id="1_u3t5a"]
 [ext_resource type="PackedScene" uid="uid://d37ov65bs2of0" path="res://01_Assets/01_3D/03_Environment/MultiMesh/multi_trees.tscn" id="4_mvcjg"]
-[ext_resource type="PackedScene" uid="uid://d2f3rk1ssyivh" path="res://01_Assets/01_3D/02_Props/trees/tree.tscn" id="4_pcouj"]
 [ext_resource type="ArrayMesh" uid="uid://bbtferxcltbfv" path="res://01_Assets/01_3D/02_Props/trees/tree_mesh.tres" id="5_mlhwg"]
 [ext_resource type="Script" path="res://01_Assets/01_3D/03_Environment/MultiMesh/multi_trees.gd" id="6_u157u"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n8v8j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ynsv5"]
 radius = 0.05
@@ -55,19 +51,10 @@ buffer = PackedFloat32Array(0, 6, 0.1155, 0.132, 0.1595, 1, 0, 0.105263, 0, 6, 0
 
 [node name="Main" type="Node3D"]
 
-[node name="GolfCourse" parent="." instance=ExtResource("1_oqcai")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 100)
-
-[node name="Nocks_Course_v2" parent="GolfCourse" instance=ExtResource("1_oqcai")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GolfCourse/Nocks_Course_v2"]
-shape = SubResource("ConvexPolygonShape3D_n8v8j")
-
-[node name="collision_terrain" parent="GolfCourse" instance=ExtResource("2_lordl")]
-visible = false
+[node name="GolfCourse" parent="." instance=ExtResource("1_u3t5a")]
 
 [node name="GolfBall" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.293379, 101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215, -1.1, -187)
 collision_mask = 6
 mass = 0.05
 physics_material_override = ExtResource("1_qk8cj")
@@ -81,10 +68,10 @@ shape = SubResource("SphereShape3D_ynsv5")
 mesh = SubResource("SphereMesh_m8qv1")
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.984823, -0.0301387, 0.170925, 1.03513e-09, 0.984808, 0.173648, -0.173562, 0.171013, -0.969861, 213.575, -0.0715239, -86.3894)
+transform = Transform3D(-0.83551, -0.0954154, 0.541127, 9.82226e-10, 0.984808, 0.173648, -0.549475, 0.145085, -0.822817, 216, -0.325, -188.5)
 
 [node name="HolePosition" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -0.0644288, 188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0.4, 84)
 
 [node name="AimingLine" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -109,10 +96,10 @@ offset_right = -307.0
 offset_bottom = -45.0
 
 [node name="BallStartPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213, -0.778, -83)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215, -1.1, -187)
 
 [node name="Hole" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.275, -100)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0.4, 84)
 
 [node name="HoleTrigger" type="Area3D" parent="Hole"]
 
@@ -126,12 +113,7 @@ environment = SubResource("Environment_ncrkp")
 transform = Transform3D(0.707107, -0.5, 0.5, 2.4663e-16, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
 light_color = Color(0.946128, 0.950147, 0.874226, 1)
 
-[node name="Tree1Geo" parent="." instance=ExtResource("4_pcouj")]
-transform = Transform3D(1.77, 0, 0, 0, 1.77, 0, 0, 0, 1.77, 15.2285, 0.0626795, 202.977)
-
-[node name="Tree1Geo2" parent="." instance=ExtResource("4_pcouj")]
-transform = Transform3D(1.41, 0, 0, 0, 1.41, 0, 0, 0, 1.41, 13.2963, -0.0584195, 200.159)
-
 [node name="MultiTrees" parent="." instance=ExtResource("4_mvcjg")]
+visible = false
 multimesh = SubResource("MultiMesh_pc2aw")
 script = ExtResource("6_u157u")

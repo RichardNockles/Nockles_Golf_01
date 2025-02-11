@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dulek1vav8tsb"]
+
+[ext_resource type="PackedScene" uid="uid://g6b66g84fjjc" path="res://01_Assets/01_3D/03_Environment/Course/Blender/Nocks_Course_v4.blend" id="1_vgjoj"]
+
+[node name="Nocks_Course_v4" instance=ExtResource("1_vgjoj")]
